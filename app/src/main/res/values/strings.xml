@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Taller_2</string>
+    <string name="NombreCam">CamilaMurcia</string>
+    <string name="BienvenidaApp">MindSoulHeart</string>
+    <string name="MsjInvitacion">Inicia una nueva aventura con MindSoulHeart y descubre una nueva forma de ver el mundo</string>
+    <string name="btnSiguienteLogin">Comienza</string>
+    <string name="MnjInvitacion2">Registrate</string>
+    <string name="MsjInicioSesion">La aventura está por iniciar, por favor inicia sesion</string>
+    <string name="btnIngresar">Ingresar</string>
+    <string name="MsjRecuperaContra">Recupera Tu Contraseña</string>
+    <string name="NombreLogin">Nombre</string>
+    <string name="Contra">Contraseña</string>
+    <string name="btnIngresGoogle">Ingresar con Google</string>
+    <string name="linkRegistro">Regístrate</string>
+    <string name="preguntaRegistro">¿No tienes cuenta?</string>
+</resources>

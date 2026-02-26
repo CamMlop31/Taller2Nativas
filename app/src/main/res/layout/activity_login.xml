@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BackgroundPrimary"
+    tools:context=".activities.Login">
+
+    <ImageView
+        android:id="@+id/logoHome"
+        android:layout_width="136dp"
+        android:layout_height="109dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.007"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/btnIngresar"
+        android:layout_width="272dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="248dp"
+        android:backgroundTint="@color/BackgroundBotones"
+        android:fontFamily="serif"
+        android:text="@string/btnIngresar"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Contra"
+        app:layout_constraintVertical_bias="0.652"
+        app:strokeColor="@color/BordeBotones"
+        app:strokeWidth="3dp" />
+
+    <TextView
+        android:id="@+id/MsjRecuperaContra"
+        android:layout_width="238dp"
+        android:layout_height="27dp"
+        android:fontFamily="serif"
+        android:text="@string/MsjRecuperaContra"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnIngresar"
+        app:layout_constraintVertical_bias="0.056" />
+
+    <ImageView
+        android:id="@+id/UsuContra"
+        android:layout_width="57dp"
+        android:layout_height="130dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.039"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.409"
+        app:srcCompat="@drawable/usucontra" />
+
+    <EditText
+        android:id="@+id/Contra"
+        android:layout_width="296dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="132dp"
+        android:background="@drawable/style_edittext"
+        android:ems="10"
+        android:hint="@string/Contra"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColor="@color/BackgroundPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintStart_toEndOf="@+id/UsuContra"
+        app:layout_constraintTop_toBottomOf="@+id/MsjInicioSesion" />
+
+    <TextView
+        android:id="@+id/MsjInicioSesion"
+        android:layout_width="285dp"
+        android:layout_height="61dp"
+        android:fontFamily="serif"
+        android:text="@string/MsjInicioSesion"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.222" />
+
+    <TextView
+        android:id="@+id/MindSoulHeart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="@string/BienvenidaApp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintStart_toEndOf="@+id/logoHome"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.101" />
+
+    <EditText
+        android:id="@+id/Nombre"
+        android:layout_width="295dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/style_edittext"
+        android:ems="10"
+        android:hint="@string/NombreLogin"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColor="@color/BackgroundPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.355"
+        app:layout_constraintStart_toEndOf="@+id/UsuContra"
+        app:layout_constraintTop_toBottomOf="@+id/MsjInicioSesion" />
+
+    <LinearLayout
+        android:id="@+id/btnIngresoGoogle"
+        android:layout_width="360dp"
+        android:layout_height="51dp"
+        android:background="@drawable/style_btn_google"
+        android:gravity="left"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MsjRecuperaContra"
+        app:layout_constraintVertical_bias="0.254">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/google" />
+
+        <TextView
+            android:layout_width="277dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/tiro_devanagari_hindi"
+            android:text="@string/btnIngresGoogle"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/contenedorRegistro"
+        android:layout_width="272dp"
+        android:layout_height="34dp"
+        android:gravity="left"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnIngresoGoogle"
+        app:layout_constraintVertical_bias="0.213">
+
+        <TextView
+            android:id="@+id/preguntaRegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:text="@string/preguntaRegistro"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/linkRegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:layout_marginStart="6dp"
+            android:text="@string/linkRegistro"
+            android:textColor="@color/BackgroundBotones"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
