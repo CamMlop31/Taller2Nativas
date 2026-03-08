@@ -13,4 +13,12 @@
     <string name="btnIngresGoogle">Ingresar con Google</string>
     <string name="linkRegistro">Regístrate</string>
     <string name="preguntaRegistro">¿No tienes cuenta?</string>
+    <string name="TituloRegistrate">Datos Personales</string>
+    <string name="Apellidos">Apellidos</string>
+    <string name="g_nero">Género</string>
+    <string name="Edad">Edad</string>
+    <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
+    <string name="eps_aficilia">EPS de aficiliación</string>
+    <string name="regre_login">Regresar al login</string>
+    <string name="Sigui">Siguiente</string>
 </resources>

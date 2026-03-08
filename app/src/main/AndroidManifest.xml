@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Taller_2">
         <activity
+            android:name=".activities.Registro"
+            android:exported="false" />
+        <activity
             android:name=".activities.Login"
             android:exported="false" />
         <activity
