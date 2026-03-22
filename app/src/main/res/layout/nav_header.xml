@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/BordeBotones"
+    android:padding="25dp">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/logo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="@string/mis_servicios"
+        android:textColor="@color/white"
+        android:layout_marginVertical="20dp"
+        android:layout_marginStart="8dp"
+        android:textSize="25sp"
+        android:textStyle="bold|italic"
+        android:layout_marginTop="10dp"/>
+
+
+</LinearLayout>

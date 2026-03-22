@@ -8,7 +8,7 @@
     android:background="@color/BackgroundPrimary"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".activities.SplashActivity">
+    tools:context=".activities.ui.inicio.SplashActivity">
 
     <ImageView
         android:id="@+id/logoPrinci"

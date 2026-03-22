@@ -1,4 +1,4 @@
-package com.example.taller_2.activities
+package com.example.taller_2.activities.ui.inicio
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,7 +15,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         //Delay de 3 segundos y redireccionamiento (3000)
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, Home::class.java))
+            startActivity(Intent(this, InicioActivity::class.java))
             finish()
         }, 3000)
 

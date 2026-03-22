@@ -9,7 +9,7 @@
 
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".activities.Home">
+    tools:context=".activities.ui.inicio.InicioActivity">
 
     <ImageView
         android:id="@+id/logoHome"

@@ -21,4 +21,25 @@
     <string name="eps_aficilia">EPS de aficiliación</string>
     <string name="regre_login">Regresar al login</string>
     <string name="Sigui">Siguiente</string>
+    <string name="TituloRegistrate2">Datos de registro</string>
+    <string name="direccion">Dirección</string>
+    <string name="ciudad">Ciudad</string>
+    <string name="telefono_celular">Telefono/Celular</string>
+    <string name="correo_electronico">Correo electronico</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="confirme_contrasena">Confirme su contraseña</string>
+    <string name="terminos_condiciones">Acepta terminos y condiciones</string>
+    <string name="registrarse">Registrarse</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mis_servicios">Mis servicios</string>
+    <string name="inicio">Inicio</string>
+    <string name="catalogo">Catalogo</string>
+    <string name="carrito">Carrito</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="administrador">Administrador</string>
+    <string name="usuarios">Usuarios</string>
+    <string name="perfil">Perfil</string>
+    <string name="navigation_drawer_open">menu_abierto</string>
+    <string name="navigation_drawer_close">menu_cerrado</string>
 </resources>

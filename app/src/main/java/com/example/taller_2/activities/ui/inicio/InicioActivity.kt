@@ -1,4 +1,4 @@
-package com.example.taller_2.activities
+package com.example.taller_2.activities.ui.inicio
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,9 @@ import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.taller_2.R
+import com.example.taller_2.activities.ui.auth.Login
 
-class Home : AppCompatActivity() {
+class InicioActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -16,7 +17,7 @@ class Home : AppCompatActivity() {
         val btn: Button = findViewById(R.id.btnSiguienteLogin)
 
         btn.setOnClickListener {
-            val intent = Intent(this@Home, Login::class.java)
+            val intent = Intent(this@InicioActivity, Login::class.java)
             startActivity(intent)
             finish()
         }
