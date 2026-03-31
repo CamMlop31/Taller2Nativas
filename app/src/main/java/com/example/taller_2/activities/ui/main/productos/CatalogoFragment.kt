@@ -1,60 +1,58 @@
 package com.example.taller_2.activities.ui.main.productos
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.taller_2.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CatalogoFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CatalogoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private val ListaProductos = listOf(
+        Producto(1, "Consulta Primera Vez",
+            "Consulta con un especialista, en MindSoulHeart tenemos el gusto de atenderte. Pregunta por nuestras consultas de primera vez",
+            60.999, R.drawable.salud_integral),
+        Producto(1, "Consulta Salud Mental Primera Vez",
+            "Consulta con tu especialista de confianza, en MindSoulHeart priorizamos la salud mental de nuestros pacientes. Pregunta por nuestras consultas de primera vez",
+            80.999, R.drawable.psicologia_vez),
+        Producto(1, "Consulta Salud Mental Seguimiento",
+            "Consulta con tu especialista de confianza, en MindSoulHeart priorizamos la salud mental de nuestros pacientes. Agenda tus sesiones de seguimiento con tu profesional de confianza",
+            80.999, R.drawable.seguimiento_psicolo),
+        Producto(1, "Consulta Salud Financiera Primera Vez",
+            "Consulta con tu especialista de confianza, en MindSoulHeart priorizamos la salud Financiera de nuestros usuarios, una buena economia brinda estabilidad. Pregunta por nuestras consultas de primera vez",
+            80.999, R.drawable.salud_financiera),
+        Producto(1, "Consulta Salud Financiera Seguimiento",
+            "Consulta con tu especialista de confianza, en MindSoulHeart priorizamos la salud financiera de nuestros usuarios. Agenda tus sesiones de seguimiento y manten tus finanzas bajo control",
+            80.999, R.drawable.seguimiento_salud_financiera),
+        Producto(1, "Consulta Nutricion y Buen Comer",
+            "Consulta con tu especialista de confianza, en MindSoulHeart priorizamos los habitos alimenticios de nuestros usuarios. Pregunta por nuestras consultas de primera vez",
+            80.999, R.drawable.nutricion_primera),
+        Producto(1, "Consulta Fisioterapia",
+            "Consulta con tu especialista de confianza, en MindSoulHeart priorizamos los tu salud corporal, articular, motriz y osea. Pregunta por nuestras consultas de primera vez",
+            80.999, R.drawable.fisioterapia),
+        Producto(1, "Consulta Manejo del estres",
+            "Consulta con tu especialista de confianza, en MindSoulHeart priorizamos tu bienestar y te brindamos herramientas para el manejo del estres de nuestros usuarios. Pregunta por nuestras consultas de primera vez",
+            80.999, R.drawable.manejo_del_estres),
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+
+        )
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_catalogo, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        val RecyclerView = view.findViewById<RecyclerView>(R.id.recycler_productos)
+        RecyclerView.layoutManager = GridLayoutManager(requireContext(),2)
+        RecyclerView.adapter = AdaptadorProductos(ListaProductos)
+        return view
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CatalogoFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CatalogoFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
+
 }

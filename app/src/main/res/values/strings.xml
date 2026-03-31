@@ -42,4 +42,8 @@
     <string name="perfil">Perfil</string>
     <string name="navigation_drawer_open">menu_abierto</string>
     <string name="navigation_drawer_close">menu_cerrado</string>
+    <string name="productosDestacados">Productos Destacados</string>
+    <string name="imagen_del_producto">Imagen del Producto</string>
+    <string name="agregar">Agregar</string>
+    <string name="todos_los_productos_disponibles">Todos los productos disponibles</string>
 </resources>
