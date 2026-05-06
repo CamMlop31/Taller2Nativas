@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.ui.main.perfil.editarPerfilFragment">
+
+    <TextView
+        android:id="@+id/TituloPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="@string/perfil_de_usuario"
+        android:textAlignment="center"
+        android:textColor="@color/BordeBotones"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="25dp">
+
+            <!-- Foto redonda con ícono de cámara -->
+            <FrameLayout
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginBottom="24dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    app:cardCornerRadius="60dp"
+                    app:cardElevation="6dp">
+
+                    <ImageView
+                        android:id="@+id/iv_editar_foto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/ic_launcher_round"
+                        android:contentDescription="Foto de perfil" />
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Ícono de cámara sobre la foto -->
+                <ImageView
+                    android:id="@+id/iv_camara_icon"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="bottom|end"
+                    android:src="@android:drawable/ic_menu_camera"
+                    android:padding="6dp"
+                    android:contentDescription="@string/cambiar_foto" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/TtlRegidtro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="serif"
+                android:text="@string/TituloRegistrate"
+                android:textAlignment="center"
+                android:textColor="@color/BordeBotones"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+            <EditText
+                android:id="@+id/Nombre"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/style_edittext"
+                android:ems="10"
+                android:hint="@string/NombreLogin"
+                android:paddingStart="10dp"
+                android:textColor="@color/BackgroundPrimary" />
+
+            <EditText
+                android:id="@+id/Apellidos"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/style_edittext"
+                android:ems="10"
+                android:hint="@string/Apellidos"
+                android:paddingStart="10dp"
+                android:textColor="@color/BackgroundPrimary" />
+
+            <EditText
+                android:id="@+id/G_nero"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/style_edittext"
+                android:ems="10"
+                android:hint="@string/g_nero"
+                android:paddingStart="10dp"
+                android:textColor="@color/BackgroundPrimary" />
+
+            <EditText
+                android:id="@+id/Edad"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/style_edittext"
+                android:ems="10"
+                android:hint="@string/Edad"
+                android:paddingStart="10dp"
+                android:textColor="@color/BackgroundPrimary" />
+
+            <EditText
+                android:id="@+id/Fch_nacimiento"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/style_edittext"
+                android:ems="10"
+                android:hint="@string/fecha_de_nacimiento"
+                android:paddingStart="10dp"
+                android:textColor="@color/BackgroundPrimary" />
+
+            <EditText
+                android:id="@+id/Eps_afilia"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/style_edittext"
+                android:ems="10"
+                android:hint="@string/eps_aficilia"
+                android:paddingStart="10dp"
+                android:textColor="@color/BackgroundPrimary" />
+
+            <TextView
+                android:id="@+id/SubTituloRegidtro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="serif"
+                android:text="@string/datos_de_localizacion"
+                android:textAlignment="center"
+                android:textColor="@color/BordeBotones"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+            <EditText
+                android:id="@+id/Direccion"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/style_edittext"
+                android:ems="10"
+                android:hint="@string/direccion"
+                android:paddingStart="10dp"
+                android:textColor="@color/BackgroundPrimary" />
+
+            <EditText
+                android:id="@+id/Ciudad"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/style_edittext"
+                android:ems="10"
+                android:hint="@string/ciudad"
+                android:paddingStart="10dp"
+                android:textColor="@color/BackgroundPrimary" />
+
+            <EditText
+                android:id="@+id/Telefono"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/style_edittext"
+                android:ems="10"
+                android:hint="@string/telefono_celular"
+                android:paddingStart="10dp"
+                android:textColor="@color/BackgroundPrimary" />
+
+            <TextView
+                android:id="@+id/SubCredenRegidtro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="serif"
+                android:text="@string/credenciales_del_usuario"
+                android:textAlignment="center"
+                android:textColor="@color/BordeBotones"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+            <EditText
+                android:id="@+id/Email"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/style_edittext"
+                android:ems="10"
+                android:hint="@string/correo_electronico"
+                android:paddingStart="10dp"
+                android:textColor="@color/BackgroundPrimary" />
+
+            <EditText
+                android:id="@+id/Contra"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/style_edittext"
+                android:ems="10"
+                android:hint="@string/contrasena"
+                android:paddingStart="10dp"
+                android:textColor="@color/BackgroundPrimary" />
+
+            <EditText
+                android:id="@+id/ReContra"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/style_edittext"
+                android:ems="10"
+                android:hint="@string/confirme_contrasena"
+                android:paddingStart="10dp"
+                android:textColor="@color/BackgroundPrimary" />
+
+            <Button
+                android:id="@+id/Btn_guardarCambios"
+                android:layout_width="342dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/BackgroundBotones"
+                android:fontFamily="serif"
+                android:text="@string/guardar_cambios"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:strokeColor="@color/BordeBotones"
+                app:strokeWidth="3dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

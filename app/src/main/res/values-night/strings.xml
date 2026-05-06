@@ -18,8 +18,8 @@
     <string name="g_nero">Género</string>
     <string name="Edad">Edad</string>
     <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
-    <string name="eps_aficilia">EPS de aficiliación</string>
-    <string name="regre_login">Regresar al login</string>
+    <string name="eps_aficilia">EPS de afiliación</string>
+    <string name="regre_login">¿Ya tienes una cuenta? Regresar al login</string>
     <string name="Sigui">Siguiente</string>
     <string name="TituloRegistrate2">Datos de registro</string>
     <string name="direccion">Dirección</string>
@@ -44,4 +44,15 @@
     <string name="imagen_del_producto">Imagen del Producto</string>
     <string name="agregar">Agregar</string>
     <string name="todos_los_productos_disponibles">Todos los productos disponibles</string>
+    <string name="datos_de_localizacion">Datos de localización del usuario</string>
+    <string name="credenciales_del_usuario">Credenciales del usuario</string>
+    <string name="editar">Editar</string>
+    <string name="perfil_de_usuario">Perfil de Usuario</string>
+    <string name="cerrar_sesion">Cerrar Sesion</string>
+    <string name="ingresar_con_huella">Ingresar con huella</string>
+    <string name="editar_perfil">Editar Perfil</string>
+    <string name="foto_de_perfil">Foto de perfil</string>
+    <string name="edita_perfil">Editar Perfil</string>
+    <string name="guardar_cambios">Guardar Cambios</string>
+    <string name="cambiar_foto">Cambiar Foto</string>
 </resources>

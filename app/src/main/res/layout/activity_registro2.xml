@@ -80,7 +80,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/Nombre"
+                android:id="@+id/Direccion"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/style_edittext"
@@ -90,7 +90,7 @@
                 android:textColor="@color/BackgroundPrimary" />
 
             <EditText
-                android:id="@+id/Apellidos"
+                android:id="@+id/Ciudad"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
@@ -101,7 +101,7 @@
                 android:textColor="@color/BackgroundPrimary" />
 
             <EditText
-                android:id="@+id/G_nero"
+                android:id="@+id/Telefono"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
@@ -112,7 +112,7 @@
                 android:textColor="@color/BackgroundPrimary" />
 
             <EditText
-                android:id="@+id/Edad"
+                android:id="@+id/Email"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
@@ -123,24 +123,28 @@
                 android:textColor="@color/BackgroundPrimary" />
 
             <EditText
-                android:id="@+id/Fch_nacimiento"
+                android:id="@+id/Contra"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/style_edittext"
                 android:ems="10"
                 android:hint="@string/contrasena"
+                android:inputType="textPassword"
+                android:importantForAutofill="yes"
                 android:paddingStart="10dp"
                 android:textColor="@color/BackgroundPrimary" />
 
             <EditText
-                android:id="@+id/Eps_afilia"
+                android:id="@+id/ReContra"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/style_edittext"
                 android:ems="10"
                 android:hint="@string/confirme_contrasena"
+                android:inputType="textPassword"
+                android:autofillHints="password"
                 android:paddingStart="10dp"
                 android:textColor="@color/BackgroundPrimary" />
 
@@ -162,6 +166,7 @@
             android:orientation="horizontal">
 
             <CheckBox
+                android:id="@+id/CheckTerminos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:buttonTint="@color/BordeBotones"
@@ -180,7 +185,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/Sigui"
+            android:id="@+id/Registrarse"
             android:layout_width="272dp"
             android:layout_height="70dp"
             android:layout_marginTop="2dp"
@@ -196,11 +201,11 @@
             android:id="@+id/Regre_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="serif"
             android:text="@string/regre_login"
             android:textColor="@color/BackgroundBotones"
-            android:textSize="18sp" />
+            android:textSize="18sp"/>
 
     </LinearLayout>
 

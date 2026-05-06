@@ -14,7 +14,7 @@
         android:id="@+id/Encabezado"
         android:layout_width="365dp"
         android:layout_height="115dp"
-        android:layout_marginTop="-40dp"
+        android:layout_marginTop="-20dp"
         android:layout_marginStart="-20dp"
         android:gravity="center"
         android:orientation="horizontal">
@@ -54,7 +54,7 @@
         android:id="@+id/UsuContraConte"
         android:layout_width="380dp"
         android:layout_height="150dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="-13dp"
         android:gravity="center"
         android:orientation="horizontal">
@@ -83,17 +83,32 @@
                 android:layout_marginStart="-20dp"
                 android:textColor="@color/BackgroundPrimary"/>
 
-            <EditText
-                android:id="@+id/Contra"
-                android:layout_width="296dp"
-                android:layout_height="48dp"
-                android:paddingStart="10dp"
-                android:background="@drawable/style_edittext"
-                android:ems="10"
-                android:hint="@string/Contra"
-                android:layout_marginTop="20dp"
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="295dp"
+                android:layout_height="65dp"
                 android:layout_marginStart="-20dp"
-                android:textColor="@color/BackgroundPrimary"/>
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/BackgroundPrimary"
+                app:boxBackgroundMode="none">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Contra"
+                    android:layout_width="295dp"
+                    android:layout_height="55dp"
+                    android:paddingStart="10dp"
+                    android:background="@drawable/style_edittext"
+                    android:ems="10"
+                    android:hint="@string/contrasena"
+                    android:inputType="textPassword"
+                    android:textColor="@color/BackgroundPrimary"
+                    android:textColorHint="@color/BackgroundPrimary"
+                    android:autofillHints="password"/>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
         </LinearLayout>
 
@@ -101,8 +116,8 @@
 
     <LinearLayout
         android:layout_width="400dp"
-        android:layout_height="290dp"
-        android:layout_marginTop="25dp"
+        android:layout_height="330dp"
+        android:layout_marginTop="15dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -129,11 +144,22 @@
         android:layout_marginTop="10dp"
         android:textSize="18sp" />
 
-    <LinearLayout
+        <TextView
+            android:id="@+id/in_huella"
+            android:layout_width="238dp"
+            android:layout_height="27dp"
+            android:text="@string/ingresar_con_huella"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:layout_marginTop="25dp"
+            android:textSize="18sp"/>
+
+
+        <LinearLayout
         android:id="@+id/btnIngresoGoogle"
         android:layout_width="360dp"
         android:layout_height="51dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/style_btn_google"
         android:gravity="start"
         android:orientation="horizontal">
@@ -146,6 +172,7 @@
             android:src="@drawable/google" />
 
         <TextView
+            android:id="@+id/tvIngresoGoogle"
             android:layout_width="277dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"

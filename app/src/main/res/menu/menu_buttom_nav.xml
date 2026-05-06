@@ -20,8 +20,8 @@
         />
 
     <item
-        android:id="@+id/nav_favoritos"
-        android:title="@string/favoritos"
+        android:id="@+id/nav_editarPerfil"
+        android:title="@string/editar_perfil"
         android:icon="@drawable/outline_add_reaction_24"
         />
 

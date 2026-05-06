@@ -7,70 +7,63 @@
             android:id="@+id/nav_home"
             android:title="@string/inicio"
             android:icon="@drawable/baseline_home_24"
+            android:visible="false"
             />
-
-    </group>
-
-    <group android:checkableBehavior="single">
 
         <item
             android:id="@+id/nav_catalogo"
             android:title="@string/catalogo"
             android:icon="@drawable/outline_add_card_24"
+            android:visible="false"
             />
-
-    </group>
-
-    <group android:checkableBehavior="single">
 
         <item
             android:id="@+id/nav_carrito"
             android:title="@string/carrito"
             android:icon="@drawable/outline_add_shopping_cart_24"
+            android:visible="false"
             />
-
-    </group>
-
-    <group android:checkableBehavior="single">
 
         <item
             android:id="@+id/nav_favoritos"
             android:title="@string/favoritos"
             android:icon="@drawable/outline_add_reaction_24"
+            android:visible="false"
             />
-
-    </group>
-
-    <group android:checkableBehavior="single">
 
         <item
             android:id="@+id/nav_perfil"
             android:title="@string/perfil"
             android:icon="@drawable/outline_accessibility_24"
+            android:visible="false"
             />
 
-    </group>
-
-    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_editarPerfil"
+            android:title="@string/editar_perfil"
+            android:icon="@drawable/outline_add_reaction_24"
+            android:visible="false"
+            />
 
         <item
             android:id="@+id/nav_usua"
             android:title="@string/usuarios"
             android:icon="@drawable/outline_accessibility_new_24"
+            android:visible="false"
             />
-
-    </group>
-
-    <group android:checkableBehavior="single">
 
         <item
             android:id="@+id/nav_admin"
             android:title="@string/administrador"
             android:icon="@drawable/outline_android_24"
+            android:visible="false"
             />
 
     </group>
 
-
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/cerrar_sesion"/>
 
 </menu>

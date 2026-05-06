@@ -107,6 +107,7 @@
 
             <EditText
                 android:id="@+id/Edad"
+                android:inputType="number"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
@@ -139,7 +140,7 @@
                 android:textColor="@color/BackgroundPrimary" />
 
             <Button
-                android:id="@+id/sigui"
+                android:id="@+id/Btn_sigui"
                 android:layout_width="272dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="30dp"

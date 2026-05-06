@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -42,7 +43,24 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.play.services.base)
+    implementation(libs.googleid)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.fragment.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("com.google.android.gms:play-services-auth:21.0.0")
+    implementation(libs.biometric)
+    implementation("com.google.android.material:material:1.11.0")
+
+    implementation(platform(libs.supabase.bom))
+    implementation(libs.supabase.postgrest)
+    implementation(libs.supabase.auth)
+    implementation(libs.ktor.client.android)
+    implementation(libs.kotlinx.serialization.json)
+
+    implementation(libs.coil)
+    implementation(libs.supabase.storage)
+
 }
