@@ -11,6 +11,7 @@ import io.github.jan.supabase.storage.storage
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.put
+import java.io.File
 
 object UsuarioRepository {
 
@@ -24,55 +25,48 @@ object UsuarioRepository {
         val foto_url: String? = null
     )
 
-    suspend fun existeUsuario(userId: String): Boolean {
+    @Serializable
+    data class DatosUsuarioData(
+        val iddatosusu: String,
+        val genero: String? = null,
+        val edad: Int? = null,
+        val fecha_nacimiento: String? = null,
+        val eps_afilia: String? = null
+    )
 
-        return try {
+    @Serializable
+    data class DatosUbicacionData(
+        val idregistro: String,
+        val direccion: String? = null,
+        val ciudad: String? = null,
+        val telefono: String? = null
+    )
 
-            val resultado = SupabaseClient.client
+    // USUARIO PRINCIPAL
+
+    suspend fun existeUsuario(userId: String): Boolean =
+        try {
+            SupabaseClient.client
                 .postgrest["Usuarios"]
                 .select(Columns.raw("id")) {
-
-                    filter {
-                        eq("id", userId)
-                    }
+                    filter { eq("id", userId) }
                 }
                 .decodeList<Map<String, String>>()
-
-            resultado.isNotEmpty()
-
+                .isNotEmpty()
         } catch (e: Exception) {
-
-            Log.e("DEBUG_QUERY", "Error existeUsuario: ${e.message}")
             false
         }
-    }
 
     suspend fun obtenerUsuarioActual(): UsuarioData? {
-
-        val userId = SupabaseClient.client.auth
-            .currentUserOrNull()?.id ?: return null
-
-        Log.d("DEBUG_QUERY", "User ID auth: $userId")
+        val userId = SupabaseClient.client.auth.currentUserOrNull()?.id ?: return null
 
         return try {
-
-            val resultado = SupabaseClient.client
+            SupabaseClient.client
                 .postgrest["Usuarios"]
-                .select {
-
-                    filter {
-                        eq("id", userId)
-                    }
-                }
+                .select { filter { eq("id", userId) } }
                 .decodeList<UsuarioData>()
-
-            Log.d("DEBUG_QUERY", "Resultado completo: $resultado")
-
-            resultado.firstOrNull()
-
+                .firstOrNull()
         } catch (e: Exception) {
-
-            Log.e("DEBUG_QUERY", "Error obtenerUsuarioActual: ${e.message}")
             null
         }
     }
@@ -83,53 +77,18 @@ object UsuarioRepository {
         apellidos: String,
         correo: String
     ) {
-
-        try {
-
-            SupabaseClient.client
-                .postgrest["Usuarios"]
-                .insert(
-                    UsuarioData(
-                        id = id,
-                        nombre = nombres,
-                        apellidos = apellidos,
-                        correo = correo
-                    )
-                )
-
-            Log.d("DEBUG_QUERY", "Usuario insertado correctamente")
-
-        } catch (e: Exception) {
-
-            Log.e("DEBUG_QUERY", "Error insertarUsuario: ${e.message}")
-        }
+        SupabaseClient.client.postgrest["Usuarios"].insert(
+            UsuarioData(
+                id = id,
+                nombre = nombres,
+                apellidos = apellidos,
+                correo = correo
+            )
+        )
     }
 
-    suspend fun obtenerRolActual(): String {
-
-        return try {
-
-            val userId = SupabaseClient.client.auth
-                .currentUserOrNull()?.id ?: return "cliente"
-
-            val resultado = SupabaseClient.client
-                .postgrest["Usuarios"]
-                .select {
-
-                    filter {
-                        eq("id", userId)
-                    }
-                }
-                .decodeList<UsuarioData>()
-
-            resultado.firstOrNull()?.rol ?: "cliente"
-
-        } catch (e: Exception) {
-
-            Log.e("DEBUG_QUERY", "Error obtenerRolActual: ${e.message}")
-            "cliente"
-        }
-    }
+    suspend fun obtenerRolActual(): String =
+        obtenerUsuarioActual()?.rol ?: "cliente"
 
     suspend fun actualizarPerfil(
         nombres: String,
@@ -138,89 +97,140 @@ object UsuarioRepository {
         fotoUrl: String? = null
     ) {
 
-        val userId = SupabaseClient.client.auth
-            .currentUserOrNull()?.id ?: return
+        val userId = SupabaseClient.client.auth.currentUserOrNull()?.id ?: return
 
-        try {
+        val datos = buildJsonObject {
+            put("nombre", nombres)
+            put("apellidos", apellidos)
+            put("correo", correo)
+            if (fotoUrl != null) put("foto_url", fotoUrl)
+        }
 
+        SupabaseClient.client
+            .postgrest["Usuarios"]
+            .update(datos) {
+                filter { eq("id", userId) }
+            }
+    }
+
+
+    // DATOS DE USUARIO (INSERT / UPDATE)
+
+
+    suspend fun guardarDatosUsuario(
+        genero: String,
+        edad: Int,
+        fechaNacimiento: String,
+        epsAfilia: String
+    ) {
+
+        val userId = SupabaseClient.client.auth.currentUserOrNull()?.id ?: return
+
+        val existente = obtenerDatosUsuario()
+
+        if (existente == null) {
+            SupabaseClient.client.postgrest["DatosUsuarios"].insert(
+                DatosUsuarioData(
+                    iddatosusu = userId,
+                    genero = genero,
+                    edad = edad,
+                    fecha_nacimiento = fechaNacimiento,
+                    eps_afilia = epsAfilia
+                )
+            )
+        } else {
             val datos = buildJsonObject {
-
-                put("nombre", nombres)
-                put("apellidos", apellidos)
-                put("correo", correo)
-
-                if (fotoUrl != null) {
-                    put("foto_url", fotoUrl)
-                }
+                put("genero", genero)
+                put("edad", edad)
+                put("fecha_nacimiento", fechaNacimiento)
+                put("eps_afilia", epsAfilia)
             }
 
-            SupabaseClient.client
-                .postgrest["Usuarios"]
-                .update(datos) {
-
-                    filter {
-                        eq("id", userId)
-                    }
-                }
-
-            Log.d("DEBUG_QUERY", "Perfil actualizado")
-
-        } catch (e: Exception) {
-
-            Log.e("DEBUG_QUERY", "Error actualizarPerfil: ${e.message}")
+            SupabaseClient.client.postgrest["DatosUsuarios"].update(datos) {
+                filter { eq("iddatosusu", userId) }
+            }
         }
     }
 
-    suspend fun subirFotoPerfil(
-        contexto: Context,
-        uri: Uri
-    ): String {
+    suspend fun obtenerDatosUsuario(): DatosUsuarioData? {
+        val userId = SupabaseClient.client.auth.currentUserOrNull()?.id ?: return null
 
-        val userId = SupabaseClient.client.auth
-            .currentUserOrNull()?.id ?: return ""
+        return SupabaseClient.client
+            .postgrest["DatosUsuarios"]
+            .select { filter { eq("iddatosusu", userId) } }
+            .decodeList<DatosUsuarioData>()
+            .firstOrNull()
+    }
 
-        Log.d("DEBUG_FOTO", "Uri scheme: ${uri.scheme}")
-        Log.d("DEBUG_FOTO", "Uri path: ${uri.path}")
+
+    // DATOS DE UBICACIÓN (INSERT / UPDATE)
+
+
+    suspend fun guardarDatosUbicacion(
+        direccion: String,
+        ciudad: String,
+        telefono: String
+    ) {
+
+        val userId = SupabaseClient.client.auth.currentUserOrNull()?.id ?: return
+
+        val existente = obtenerDatosUbicacion()
+
+        if (existente == null) {
+            SupabaseClient.client.postgrest["DatosUbicacion"].insert(
+                DatosUbicacionData(
+                    idregistro = userId,
+                    direccion = direccion,
+                    ciudad = ciudad,
+                    telefono = telefono
+                )
+            )
+        } else {
+            val datos = buildJsonObject {
+                put("direccion", direccion)
+                put("ciudad", ciudad)
+                put("telefono", telefono)
+            }
+
+            SupabaseClient.client.postgrest["DatosUbicacion"].update(datos) {
+                filter { eq("idregistro", userId) }
+            }
+        }
+    }
+
+    suspend fun obtenerDatosUbicacion(): DatosUbicacionData? {
+        val userId = SupabaseClient.client.auth.currentUserOrNull()?.id ?: return null
+
+        return SupabaseClient.client
+            .postgrest["DatosUbicacion"]
+            .select { filter { eq("idregistro", userId) } }
+            .decodeList<DatosUbicacionData>()
+            .firstOrNull()
+    }
+
+    // FOTO DE PERFIL
+
+
+    suspend fun subirFotoPerfil(contexto: Context, uri: Uri): String {
+
+        val userId = SupabaseClient.client.auth.currentUserOrNull()?.id ?: return ""
 
         val bytes = if (uri.scheme == "content") {
-
-            contexto.contentResolver
-                .openInputStream(uri)
-                ?.use { it.readBytes() }
-
+            contexto.contentResolver.openInputStream(uri)?.use { it.readBytes() }
         } else {
-
-            java.io.File(uri.path!!).readBytes()
+            File(uri.path!!).readBytes()
         } ?: return ""
 
-        Log.d("DEBUG_FOTO", "Bytes leídos: ${bytes.size}")
+        val ruta = "perfil_$userId.jpg"
 
-        val rutaArchivo = "perfil_$userId.jpg"
+        SupabaseClient.client.storage["avatars"].upload(
+            path = ruta,
+            data = bytes,
+            options = { upsert = true }
+        )
 
-        try {
-
-            SupabaseClient.client
-                .storage["avatars"]
-                .upload(
-                    path = rutaArchivo,
-                    data = bytes,
-                    options = {
-                        upsert = true
-                    }
-                )
-
-            val url = SupabaseClient.client
-                .storage["avatars"]
-                .publicUrl(rutaArchivo)
-
-            Log.d("DEBUG_FOTO", "URL generada: $url")
-
-            return url
-
-        } catch (e: Exception) {
-
-            Log.e("DEBUG_FOTO", "Error subirFotoPerfil: ${e.message}")
-            return ""
-        }
+        return SupabaseClient.client
+            .storage["avatars"]
+            .publicUrl(ruta)
     }
 }

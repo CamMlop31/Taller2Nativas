@@ -94,22 +94,45 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configurarMenuPorRol(menu: Menu) {
+
         lifecycleScope.launch {
+
+            val user = SupabaseClient.client.auth.currentUserOrNull()
+            if (user == null) return@launch
+
             val rol = UsuarioRepository.obtenerRolActual()
-            runOnUiThread {
-                when (rol) {
-                    "admin"->{
-                        menu.findItem(R.id.nav_admin).isVisible = true
-                        menu.findItem(R.id.nav_usua).isVisible = true
-                    }
-                    "anfitrion"->{
-                        menu.findItem(R.id.nav_admin).isVisible = true
-                        menu.findItem(R.id.nav_usua).isVisible = false
-                    }
-                    else ->{
-                        menu.findItem(R.id.nav_admin).isVisible = false
-                        menu.findItem(R.id.nav_usua).isVisible = false
-                    }
+            android.util.Log.d("DEBUG_ROL", "Rol del usuario: $rol")
+
+
+            //  MENÚS COMUNES
+
+            menu.findItem(R.id.nav_home)?.isVisible = true
+            menu.findItem(R.id.nav_catalogo)?.isVisible = true
+            menu.findItem(R.id.nav_carrito)?.isVisible = true
+            menu.findItem(R.id.nav_favoritos)?.isVisible = true
+            menu.findItem(R.id.nav_perfil)?.isVisible = true
+            menu.findItem(R.id.nav_editarPerfil)?.isVisible = true
+            menu.findItem(R.id.nav_logout)?.isVisible = true
+
+
+            // MENÚS POR ROL
+
+            when (rol.lowercase()) {
+
+                "admin" -> {
+                    menu.findItem(R.id.nav_admin)?.isVisible = true
+                    menu.findItem(R.id.nav_usua)?.isVisible = true
+                }
+
+                "anfitrion" -> {
+                    menu.findItem(R.id.nav_admin)?.isVisible = true
+                    menu.findItem(R.id.nav_usua)?.isVisible = false
+                }
+
+                else -> {
+                    // cliente
+                    menu.findItem(R.id.nav_admin)?.isVisible = false
+                    menu.findItem(R.id.nav_usua)?.isVisible = false
                 }
             }
         }
